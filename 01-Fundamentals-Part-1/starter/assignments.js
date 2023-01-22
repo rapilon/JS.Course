@@ -28,3 +28,25 @@ console.log(`John
 is
 a
 father`);
+
+// type conversion
+
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(inputYear + 18);
+
+console.log(Number('Ramon'));
+console.log(typeof NaN);
+
+console.log(String(23), 23);
+
+//type coercion
+console.log('I am ' + 23 + 'years old');//number to string
+console.log('I am ' + '23' + 'years old'); //igual
+
+console.log('23' - '10' - 3); // string to number
+console.log('23' / '2'); // string to number
+
+let u = '2' * 8;
+console.log(u)
+

@@ -1,0 +1,37 @@
+.video-bottom-toolltip {
+    background-color: black;
+    color: aliceblue;
+    border-style: solid;
+    border-color: black;
+    font-size: 15px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+    height: 15px;
+    width: 15px;
+    padding: 25px;
+    margin: 58px;
+    display: flex;
+    display: grid;
+    flex-direction: row;
+    flex-direction: column;
+    column-gap: 15px;
+    line-height: 89px;
+    position: absolute;
+    position: relative;
+    position: fixed;
+    top: 15px;
+    bottom: 89px;
+    grid-template-columns: 30px 30px 30px;
+    box-shadow: 3px 3px 5px black;
+    transition: opacity 0.15s;
+    opacity: 0.7;
+
+}
+.video:hover .tooltop{
+
+}
+
+.video:active {
+    
+}
