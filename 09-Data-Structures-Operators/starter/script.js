@@ -11,6 +11,18 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
+     will be delivered to ${address} at ${time}`);
+  },
 
   openingHours: {
     thu: {
@@ -26,4 +38,169 @@ const restaurant = {
       close: 24,
     },
   },
+
+  orderPasta : function(ing1, ing2, ing3) {
+    console.log(`Here's your delicious pasta with ${ing1},${ing2} and ${ing3}`);
+  },
+
+  orderPizza: function(mainIngre, ...otherIngre) {
+    console.log(mainIngre);
+    console.log(otherIngre);
+  }
 };
+
+//nulish : null and undefined
+//const guest2 = restaurant.numGuests ?? 10;
+//console.log(guest2);
+
+//SHORT CIRCUITING && ||
+// USe any data type, return any data type
+console.log(28 || 'Ramon');
+console.log('' || 'Ramon'); //falsy
+console.log(true || 0);
+console.log(undefined || null); //falsy and falsy
+
+console.log(undefined || ''|| 0 || 'Hello' || 23);
+
+restaurant.numGuests = 23;
+
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+//OR
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+console.log('------AND-------');
+console.log(0 && 'Ramon');
+console.log(7 && 'Ramon');
+
+console.log('Hello' && 23 && null && 'Ramon');
+
+//Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+//Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for(let i =0; i < numbers.length; i++) sum += numbers[i]; 
+  console.log(sum);
+}
+
+add(2,3);
+add(5,3,7,2);
+add(8,2,4,6,7,9,2,3);
+
+const x = [23,7,5];
+add(...x);
+
+restaurant.orderPizza('Mussarela', 'Molho', 'Azeitonas', 'Tomate');
+
+//Destructuring
+//SPREAD, right side of =
+const array = [1, 2, ...[3, 4]];
+
+//REST, left side of =
+const [d,e, ...others] = [1, 2, 3, 4, 5];
+
+const arre = [7, 8, 9];
+const badNewArr = [1,2, arre[0], arre[1], arre[2]];
+console.log(badNewArr);
+
+const goodNewArr = [1,2, ...arre];
+console.log(goodNewArr);
+
+console.log(...goodNewArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//Copy array;
+const mainMenuCopy = [...restaurant.mainMenu];
+
+//Join 2 arrays;
+const merged = [...restaurant.mainMenu,...restaurant.starterMenu];
+
+const str = 'Ramon';
+const letters = [...str, '', 'P.'];
+console.log(letters);
+console.log(...str);
+//console.log(`${...str} Pilon`);// erro
+
+
+//Real world example
+// const ingredients = [prompt('Let\s make pasta! Ingredient 1 ?'), prompt('Ingredient 2?'), prompt('Ingredient 3 ?')];
+// console.log(ingredients);
+
+// restaurant.orderPasta(...ingredients);
+
+//Objects
+const newRestaurant = {foundIn:1998,...restaurant, founder : 'Giuseppe'}
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+//destructuring
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+let [main, , secondary] = restaurant.categories;
+console.log(main, secondary);
+//Switching variables
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
+//Receive 2 return values from a function;
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+//Nested destructuring;
+const nested = [2, 4, [5, 6]];
+// const [i, ,j] = nested;
+// console.log(i, j);
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+//Default values;
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+
+//Object destructuring;
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Mutating variables;
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
+
+//Nested objects;
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
