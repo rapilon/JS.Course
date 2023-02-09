@@ -129,3 +129,6 @@ for (const [min, event] of gameEvents) {
 // for (const [key, value] of gameEvents) {
 //     key <= 45 ? console.log(`First Half : ${key} - ${value}`) : console.log(`Second half : ${key} - ${value}`);
 // }
+
+'Challenge 4'
+

@@ -49,6 +49,121 @@ const restaurant = {
   },
 };
 
+const nameee = 'under_name';
+const name2 = nameee.split('_');
+console.log(name2);
+console.log(name2.join(''));
+
+// console.log('a+very+nice+string'.split('+'));
+// console.log('Ramon pilon'.split(' '));
+
+// const [nome, sobrenome] = 'Ramon Pilon'.split(' ');
+// console.log(nome,sobrenome);
+
+// const newName = ['Mr.', nome, sobrenome.toUpperCase()].join(' ');
+// console.log(newName);
+
+// const capitalizeNames = function(name) {
+//   const names = name.split(' ');
+//   const namesUpper = [];
+
+//   for(const n of names) {
+//    //namesUpper.push(n[0].toUpperCase()+ n.slice(1));
+//    namesUpper.push(n.replace(n[0],n[0].toUpperCase()))
+//   }
+//   console.log(namesUpper.join(' '));
+// }
+
+// capitalizeNames('ramon pilon');
+// console.log(['Britania', 'Madness'].join(' '));
+
+// const airline = 'TAP Air Brazil';
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// const passenguer = 'rAmOn';
+// const passenguerLow = passenguer.toLowerCase();
+// const passenguer1 = passenguerLow[0].toUpperCase() + passenguerLow.slice(1);
+// console.log(passenguer1);
+
+// const email = 'helloramon@bol.com';
+// const loginemail = 'HelloRamon@Bol.com\n';
+
+// const emailNorm = loginemail.toLowerCase().trim();
+
+// console.log(emailNorm);
+// console.log(email === emailNorm);
+
+// //Replacing
+// const priceGBS = '285,58&';
+// const priceBRA = priceGBS.replace('&','$').replace(',','.');
+// console.log(priceBRA);
+
+// const anuncio = `All passengers come to boarding door 23 and door 25`;
+// console.log(anuncio.replace('door','gate'));
+// //console.log(anuncio.replaceAll('door','gate'));
+// console.log(anuncio.replace(/door/g,'gate'));
+
+// //Booleans
+// const plane = 'Airbus A328neo';
+// console.log(plane.includes('A328'));
+// console.log(plane.includes('Boeing'));
+// console.log(plane.startsWith('Air'));
+
+// if (plane.startsWith('Airbus') && plane.endsWith('neo'))
+// console.log(`Part of the new Airbus family`);
+
+// //Practice exercise
+// const checkBagage = function(item) {
+//   const i = item.toLowerCase();
+//   if(i.includes('knife') || i.includes('gun'))
+//   console.log(`You're not allowed to come board`);
+//   else console.log(`You are allowed to come board`);
+// }
+
+// checkBagage('A have a lot of Food and a KnifE');
+// checkBagage('Some money and a bug Gun');
+// checkBagage('A have a plastic penis');
+
+//Working on strings pt1
+// const plane = 'A320';
+// const airline2 = 'ABCDEFGHIJKLMNO'
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B730'[0]);
+
+// console.log(airline.length);
+// console.log('B7920'.length);
+
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Brazil'));
+
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
+// console.log(airline2.slice(4,7));
+
+// console.log(airline.slice(airline.indexOf(' ')));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// //+1 para tirar o espaço
+// console.log(airline.slice(-2));
+// console.log(airline.slice(1, -1)); // segundo e penultimo
+
+// const checkMiddleSeat = function(seat) {
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log('You got the middle seat!');
+//   else console.log('You got lucky!');
+// }
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('15E');
+
+// console.log(new String('ramon'));
+// console.log(typeof new String('ramon'));
+
 // const question = new Map([
 //   ['question', 'What is the best programming language ?'],
 //   [1, 'C'],
