@@ -5,7 +5,7 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const weekdays = ['mon','tue','wed','thu','fri','sat','sun'];
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 const openingHours = {
   [weekdays[3]]: {
@@ -31,15 +31,10 @@ const restaurant = {
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-    //ES6 enchanced object literals
-    openingHours,
+  //ES6 enchanced object literals
+  openingHours,
 
-  orderDelivery({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]}
      will be delivered to ${address} at ${time}`);
   },
@@ -51,9 +46,99 @@ const restaurant = {
   orderPizza(mainIngre, ...otherIngre) {
     console.log(mainIngre);
     console.log(otherIngre);
-  }
+  },
 };
 
+// const question = new Map([
+//   ['question', 'What is the best programming language ?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'Javascript'],
+//   ['correct', 3],
+//   [true, 'Correct!'],
+//   [false, 'Try again!'],
+// ]);
+// console.log(question);
+
+// //Convert object to map
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+
+// console.log(hoursMap);
+
+// //Quiz app
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') console.log(`Answer ${key}
+//   : ${value}`);
+// }
+
+// const answer = Number(prompt('Your answer'));
+// console.log(answer);
+
+// console.log(question.get(question.get('correct') === answer));
+
+//Convert map to array
+// console.log([...question]);
+// console.log(question.entries());
+// console.log(...question.keys());
+// console.log(question.values());
+
+//Map
+// const rest = new Map();
+// rest.set('name','Classico Italiano');
+// rest.set(1,'Firenze, Italy');
+// rest.set(2,'Lisboa, portugal');
+// rest.set('categories',['Italian', 'Pizzeria']);
+// rest.set('open',11)
+//     .set('close',23)
+//     .set(true, 'We are open!')
+//     .set(false, 'We are closed');
+
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+
+// const time = 20;
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+ 
+// const arr = [1,2]
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// //rest.set([1,2] , 'Test');
+// rest.set(arr , 'Test');
+// //console.log(rest.get([1,2])); //undefined
+// console.log(rest.get(arr)); 
+
+
+//Set
+// const orderSet = new Set([
+//   'Pizza',
+//   'Risotto',
+//   'Pizza',
+//   'Pasta',
+//   'Risotto',
+//   'Pasta',
+// ]);
+
+// console.log(orderSet);
+// //sem repetidos
+
+// console.log(new Set('Ramon'));
+// console.log(orderSet.has('Pizza'));
+// console.log(orderSet.add('Bread'));
+// console.log(orderSet.delete('Risotto'));
+// //Example
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chefe', 'Waiter'];
+// const staffunique = [...new Set(staff)];
+// console.log(typeof staffunique); //object
+// console.log(staffunique);
+
+// console.log(
+//   new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chefe', 'Waiter']).size
+// );
+
+// console.log(new Set('Ramon').size);
 //Property names
 // const properties = Object.keys(openingHours);
 // console.log(properties);
@@ -71,7 +156,6 @@ const restaurant = {
 // //Entire object
 // const entries = Object.entries(openingHours);
 // //console.log(entries);
-
 
 //or [key, value] onde o objeto é simples e só tem 1 valor
 // for (const [key, {open, close}] of entries) {
@@ -102,7 +186,7 @@ const restaurant = {
 // ];
 
 // console.log(users[0]?.name ?? 'User array empty');
-//For of 
+//For of
 // const menu = [...restaurant.starterMenu,...restaurant.mainMenu];
 
 // for(const item of menu) console.log(item);
@@ -128,8 +212,7 @@ const restaurant = {
 // //nulish assigment operator (null or undefined)
 // rest1.numGuests ??= 10;
 
-
-// //AND 
+// //AND
 // // rest2.owner = rest2.owner && '<ANONYMOUS>';
 // rest1.owner &&= 'ANONYMOUS';
 // rest2.owner &&= 'ANONYMOUS';
@@ -175,7 +258,7 @@ const restaurant = {
 // //Functions
 // const add = function (...numbers) {
 //   let sum = 0;
-//   for(let i =0; i < numbers.length; i++) sum += numbers[i]; 
+//   for(let i =0; i < numbers.length; i++) sum += numbers[i];
 //   console.log(sum);
 // }
 
@@ -218,7 +301,6 @@ const restaurant = {
 // console.log(letters);
 // console.log(...str);
 // //console.log(`${...str} Pilon`);// erro
-
 
 // //Real world example
 // // const ingredients = [prompt('Let\s make pasta! Ingredient 1 ?'), prompt('Ingredient 2?'), prompt('Ingredient 3 ?')];

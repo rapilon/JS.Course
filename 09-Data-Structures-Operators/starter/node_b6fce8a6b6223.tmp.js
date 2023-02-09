@@ -104,28 +104,17 @@ const gameEvents = new Map([
     [92, '� Yellow card'],
     ]);
 
-const events = [...new Set(gameEvents.values())];
+const events = new Set([gameEvents]);
 console.log(events);
 gameEvents.delete(64);
+console.log(gameEvents);
 
-const time = [...gameEvents.keys()].pop();
-console.log(time);
+let average1 = 0;
+for (const [key, value] of gameEvents) average1 += key;
 
-console.log(
-    `And event has happened, every ${time / gameEvents.size} minutes`
-);
+average1 = (average1 / 90).toFixed(2) ;
+console.log(`An event happened, on average, every ${average1} minutes`);
 
-// let average1 = 0;
-// for (const [key, value] of gameEvents) average1 += key;
-
-// average1 = (average1 / 90).toFixed(2) ;
-// console.log(`An event happened, on average, every ${average1} minutes`);
-
-for (const [min, event] of gameEvents) {
-    const half = min <= 45 ? 'FIRST' : 'SECOND';
-    console.log(`[${half} HALF] ${min}: ${event}`);
+for (const [key, value] of gameEvents) {
+    while(key <= 45 ) console.log(`[First Half] ${key} : ${value}`);
 }
-
-// for (const [key, value] of gameEvents) {
-//     key <= 45 ? console.log(`First Half : ${key} - ${value}`) : console.log(`Second half : ${key} - ${value}`);
-// }
