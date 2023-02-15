@@ -1,31 +1,42 @@
 'use strict'
 
 const poll = {
-    answers: [
-         'Javascript' , 0,
-         'Python' ,1,
-         'Rust' , 2,
-         'C' ,3
-    ],
+    question: 'What is your favourite programming language ?',
+    options : ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
+
+    answers: new Array(4).fill(0),
     registerNewAnswer() {
-       for( const [alt, ling] of this.answers){
-           [alt, ling].push(...this.answers)
-       }
-       console.log(alt,ling);
-       const answer = Number(window.prompt(`Whats is your favorite programming language ?${ling} ${alt}`));
-       
-       
-       if(answer === 0) this.answers.Javascript = +1;
-       if(answer === 1) this.answers.Python = +1;
-       if(answer === 2) this.answers.Rust +1;
-       if(answer === 3) this.answers.C = +1;
-    //else {return window.prompt('This is not a valid number!')};
-    window.prompt(this.answers.value);
-    displayResults(this.answers) 
-        if(typeof type === object) console.log(type);
-    }
-    
+        const answer = Number(prompt(`${this.question}\n${this.options.join('\n')}\n(Write a option number)`));
+        console.log(answer);
+
+        //Register answer
+        typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
+
+        this.displayResults();
+        this.displayResults('string');
+    },
+    displayResults(type = 'array') {
+        if(type === 'array') {
+            console.log(this.answers);
+        } else if(type === 'string') {
+            //Poll results are 13, 2, 4, 1
+            console.log(`Poll results are ${this.answers.join(', ')}`);
+        }
+    },
 };
 
 document.querySelector('.poll').addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({answers: [5, 2, 3]},'string');
+
+(function () {
+    const header = document.querySelector('h1');
+    header.style.color = 'red';
+
+    document.querySelector('body').addEventListener('click',function(){
+        header.style.color = 'blue';
+    })
+    })();
+
+    
 
